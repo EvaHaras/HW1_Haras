@@ -18,7 +18,7 @@ The package was written using only JavaScript
 To start working with the package, you need to install it. This can be done using the command
 
 ```bash
-npm i HW1_Haras
+npm i hw1_haras
 ```
 
 After which you need to import the necessary functions into the project. This can be done like this:
