@@ -1,0 +1,12 @@
+{
+  "name": "hw1_haras",
+  "version": "1.0.0",
+  "description": "my first package",
+  "license": "ISC",
+  "author": "Eva Haras",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  }
+}
