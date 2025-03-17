@@ -1,38 +1,36 @@
-Создание транслетерации и конвертация расскладок клавиатуры.
-Этот проект представляет из себя набор из двух функций которые предназначены для облегчение работы с переключением клавиатуры, а также для создание транслетерации с украинского языка на английский
+Creating transliteration and converting keyboard layouts.
+This project is a set of two functions that are designed to facilitate work with keyboard switching, as well as to create transliteration from Ukrainian to English
 
-## Содержание
+## Contents
 
-1. Технологии
-2. Начало работы
+1. Technologies
+2. Getting Started
 3. Contributing
 4. FAQ
-5. Команда проекта
-6. Источники
+5. Project Team
 
+## Technologies
 
-## Технологии
+The package was written using only JavaScript
 
-Пакет был написан с использованием только JavaScript
+## Getting Started
 
-## Начало работы
-
-Для началы работы с пакетом его необходимо установить. Сделать это можно при помощи команды
+To start working with the package, you need to install it. This can be done using the command
 
 ```bash
 npm i HW1_Haras
 ```
 
-После чего необходимо заимпортить необходимы функции в проект. Это можно сделать так:
+After which you need to import the necessary functions into the project. This can be done like this:
 
 ```bash
 const {translitUkFromEn, replaceEnToUkOrUkToEn} = require('hw1_haras')
 ```
 
-Функций всего две:
-1. Первая translitUkFromEn() предназначена для создания траслетерации с украинского языка на английский. Принимает в параметры строку которая и будет транслетерирована
+There are only two functions:
+1. The first translitUkFromEn() is designed to create a translation from Ukrainian to English. Takes a string as parameters that will be transliterated
 
-Работает она так:
+It works like this:
 
 ```bash
 const {translitUkFromEn} = require('hw1_haras')
@@ -43,11 +41,27 @@ console.log({test})
 
 ```
 
-Результатом будет:
- Вывод в консоль
+The result will be:
+Console output
 {test: 'Yeva'}
 
-Если данные в параметрах будут не корректны то функция вернет - 'Дані не можуть бути null чи undefined та мають бути строкою'
+If the data in the parameters is incorrect, the function will return - 'Dani cannot be null or undefined and must be a string'
 
-2. Вторая функция - replaceEnToUkOrUkToEn() - эта функция преобразовывает введенные текст с неправильной расскладкой в понятный текст, например вместо "руддщ" она вернет "Hello"
-Она принимает параметры word - строка, это значение которое необходимо преобразовать, typeWordObject
+2. The second function - replaceEnToUkOrUkToEn() - this function converts the entered text with the wrong layout into understandable text, for example, instead of "рудщ" it will return "Hello"
+It takes parameters word - a string, this is the value that needs to be converted, typeWordObject - this is a string that indicates what we convert Ukrainian layout to English or vice versa. Accepts two response options - "enToUk" if you need to convert English layout to Ukrainian, the second option is ukToEn if you need to convert Ukrainian layout to English
+
+## Contributing
+
+All wishes on how and what to fix can be written to me in telegram :)
+
+## FAQ
+
+Why did you develop this project?
+
+The project was developed because I am not the first time faced with the need for transletation.
+
+## Project team
+
+front-end developer Yeva
+
+git: https://github.com/EvaHaras/HW1_Haras
