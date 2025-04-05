@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Перевірка пароля</title>
+      </head>      
+<body>
+  <h1>Перевірка пароля</h1>
+
+  <form id="password-form">
+    <input type="password" id="password" name="password" placeholder="Введіть пароль" required>
+    <button type="submit">Перевірити</button>
+  </form>
+
+  <div id="result">
+    
+  </div>
+
+  <script>
+    document.getElementById('password-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const password = document.getElementById('password').value;
+
+      const response = await fetch('/check-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `password=${encodeURIComponent(password)}`,
+      });
+
+      const result = await response.json();
+      const resultDiv = document.getElementById('result');
+
+      if (result.match) {
+        resultDiv.textContent = 'Пароль знайдений у масиві хешів. Вірно!';
+        resultDiv.style.color = 'green';
+      } else {
+        resultDiv.textContent = 'Пароль не знайдений, хеш додано!';
+        resultDiv.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>

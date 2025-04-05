@@ -1,0 +1,4 @@
+username=admin
+password=mysecretpassword
+email=user@example.com
+password=anotherpassword

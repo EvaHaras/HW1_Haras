@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чат</title>
+</head>
+<body>
+  <h1>Чат</h1>
+
+  <form id="chat-form">
+    <input type="text" name="message" id="message" placeholder="Введіть повідомлення" required>
+    <button type="submit">Відправити</button>
+  </form>
+
+  <div id="messages">
+    <h2>Повідомлення:</h2>
+    <ul id="message-list">
+      
+    </ul>
+  </div>
+
+  <script>
+   
+    function addMessage(message) {
+      const messageList = document.getElementById('message-list');
+      const newMessage = document.createElement('li');
+      newMessage.textContent = message;
+      messageList.appendChild(newMessage);
+    }
+
+    document.getElementById('chat-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const message = document.getElementById('message').value;
+
+      const response = await fetch('/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `message=${encodeURIComponent(message)}`
+      });
+
+      const result = await response.json();
+
+      addMessage(result.message);
+
+      document.getElementById('message').value = '';
+    });
+
+    window.onload = function() {
+      addMessage('Привіт, це ваш чат!');
+    };
+  </script>
+</body>
+</html>
