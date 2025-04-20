@@ -1,0 +1,28 @@
+html(lang="uk")
+  head
+    title Список продуктів
+    meta(charset="utf-8")
+    style.
+      .available {
+        color: green;
+      }
+      .unavailable {
+        color: red;
+      }
+  body
+    h1 Список продуктів у магазині
+
+    table(style="width:100%; border-collapse: collapse;")
+      tr
+        th(style="border: 1px solid black;") Назва
+        th(style="border: 1px solid black;") Ціна
+        th(style="border: 1px solid black;") Наявність
+
+      each product in products
+        tr
+          td(style="border: 1px solid black;")= product.name
+          td(style="border: 1px solid black;")= product.price + ' грн'
+          if product.available
+            td(style="border: 1px solid black;" class="available") В наявності
+          else
+            td(style="border: 1px solid black;" class="unavailable") Немає в наявності

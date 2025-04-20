@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Frontend + Backend</title>
+</head>
+<body>
+  <h1>Фронт</h1>
+  <p id="response">Завантаження...</p>
+
+  <script>
+    fetch('http://localhost:3000/api') 
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('response').textContent = data.message;
+      })
+      .catch(err => {
+        document.getElementById('response').textContent = '❌ Помилка з\'єднання';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

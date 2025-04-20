@@ -1,0 +1,16 @@
+html(lang="en")
+  head
+    title Node js Pug
+    meta(charset="utf-8")
+  body
+    h1= title
+    table(style="width:100%; border: 1px solid black; border-collapse: collapse;")
+      tr
+        th(style="border: 1px solid black;") Ім'я
+        th(style="border: 1px solid black;") Вік
+        th(style="border: 1px solid black;") Електронна пошта
+      each userElem in userList
+        tr
+          td(style="border: 1px solid black;")= userElem.name
+          td(style="border: 1px solid black;")= userElem.age
+          td(style="border: 1px solid black;")= userElem.email
