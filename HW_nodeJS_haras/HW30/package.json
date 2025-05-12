@@ -1,0 +1,21 @@
+{
+    "name": "node-auth-api",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "test": "jest --runInBand"
+    },
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "dotenv": "^16.5.0",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "mysql2": "^3.14.1"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "jest-environment-node": "^29.7.0",
+        "supertest": "^7.1.0"
+    }
+}

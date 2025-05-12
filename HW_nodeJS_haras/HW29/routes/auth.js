@@ -2,9 +2,9 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import pool from '../db.js';
+import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = express.Router();
-
 
 router.post('/register', async (req, res) => {
   const { email, password } = req.body;
@@ -17,7 +17,6 @@ router.post('/register', async (req, res) => {
 
   res.json({ message: 'User registered' });
 });
-
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
@@ -32,20 +31,9 @@ router.post('/login', async (req, res) => {
   res.json({ token });
 });
 
-
-router.get('/profile', async (req, res) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) return res.status(401).json({ message: 'No token' });
-
-  const token = authHeader.split(' ')[1];
-
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const [users] = await pool.query('SELECT id, email FROM users WHERE id = ?', [decoded.userId]);
-    res.json(users[0]);
-  } catch (err) {
-    res.status(401).json({ message: 'Invalid token' });
-  }
+router.get('/profile', authMiddleware, async (req, res) => {
+  const [users] = await pool.query('SELECT id, email FROM users WHERE id = ?', [req.user.userId]);
+  res.json(users[0]);
 });
 
 export default router;
