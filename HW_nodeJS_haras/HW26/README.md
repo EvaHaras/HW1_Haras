@@ -77,3 +77,82 @@
 {
   "name": "Smartphones"
 }
+
+POST /products
+Додає новий товар до бази.
+
+Тіло запиту:
+json
+Копіювати
+Редагувати
+{
+  "name": "iPhone 15",
+  "price": 50000,
+  "stock": 10,
+  "categoryId": "65e0a12b7afbe12abc123456"
+}
+POST /order
+Створює замовлення та зменшує залишок на складі.
+
+Тіло запиту:
+json
+Копіювати
+Редагувати
+{
+  "items": [
+    {
+      "productId": "65e0a12b7afbe12abc123456",
+      "quantity": 2
+    },
+    {
+      "productId": "65e0a12b7afbe12abc123457",
+      "quantity": 1
+    }
+  ]
+}
+GET /orders/total-profit
+Повертає загальний прибуток зі всіх замовлень.
+
+Приклад відповіді:
+json
+Копіювати
+Редагувати
+{
+  "totalProfit": 125000
+}
+GET /products/top
+Повертає топ-3 товарів, що найкраще продаються (за полем sold).
+Інструкція по запуску
+1. Клонування проєкту
+bash
+Копіювати
+Редагувати
+git clone https://github.com/your-username/ecommerce-api-mongo.git
+cd ecommerce-api-mongo
+2. Встановлення залежностей
+bash
+Копіювати
+Редагувати
+npm install
+3. Налаштування MongoDB
+Переконайтесь, що MongoDB запущено локально та доступне на:
+
+pgsql
+Копіювати
+Редагувати
+mongodb://admin:admin123@localhost:27017/admin?authSource=admin
+Або змініть рядок підключення в index.js:
+
+js
+Копіювати
+Редагувати
+mongoose.connect('mongodb://<user>:<password>@<host>:<port>/<database>?authSource=admin');
+4. Запуск сервера
+bash
+Копіювати
+Редагувати
+node index.js
+Сервер буде доступний на http://localhost:3000.
+
+Висновки
+Цей API надає базовий функціонал для e-commerce системи з підтримкою категорій, товарів, замовлень і звітності. Можливе подальше розширення функціоналу: авторизація, фільтрація товарів, аналітика тощо.
