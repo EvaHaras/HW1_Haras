@@ -68,7 +68,6 @@
 GET /available-rooms?date=2025-06-01
 
 bash
-Копіювати
 Редагувати
 
 #### Приклад відповіді:
@@ -89,17 +88,13 @@ POST /guests
 Додає нового гостя до бази даних.
 
 Тіло запиту:
-json
-Копіювати
-Редагувати
+
 {
   "name": "Іван Петренко",
   "email": "ivan@example.com"
 }
 Приклад відповіді:
-json
-Копіювати
-Редагувати
+
 {
   "guestId": 5
 }
@@ -107,9 +102,7 @@ POST /bookings
 Створює нове бронювання.
 
 Тіло запиту:
-json
-Копіювати
-Редагувати
+
 {
   "guestId": 5,
   "roomId": 2,
@@ -118,9 +111,7 @@ json
   "totalPrice": 3200
 }
 Приклад відповіді:
-json
-Копіювати
-Редагувати
+
 {
   "bookingId": 8
 }
@@ -128,35 +119,23 @@ GET /revenue?month=6&year=2025
 Повертає загальний дохід за певний місяць.
 
 Приклад запиту:
-sql
-Копіювати
-Редагувати
+
 GET /revenue?month=6&year=2025
 Приклад відповіді:
-json
-Копіювати
-Редагувати
+
 {
   "revenue": 9600
 }
 Інструкція по запуску
 1. Клонування проєкту
-bash
-Копіювати
-Редагувати
 git clone https://github.com/your-username/hotel-booking-api.git
 cd hotel-booking-api
 2. Встановлення залежностей
-bash
-Копіювати
-Редагувати
+
 npm install
 3. Налаштування підключення до бази даних
 Створіть файл db.js з наступним вмістом:
 
-js
-Копіювати
-Редагувати
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
@@ -169,9 +148,6 @@ const pool = mysql.createPool({
 
 module.exports = pool;
 4. Запуск сервера
-bash
-Копіювати
-Редагувати
 node index.js
 Сервер буде доступний за адресою http://localhost:3000.
 

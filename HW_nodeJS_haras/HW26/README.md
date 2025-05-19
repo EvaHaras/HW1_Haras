@@ -82,9 +82,7 @@ POST /products
 Додає новий товар до бази.
 
 Тіло запиту:
-json
-Копіювати
-Редагувати
+
 {
   "name": "iPhone 15",
   "price": 50000,
@@ -95,9 +93,7 @@ POST /order
 Створює замовлення та зменшує залишок на складі.
 
 Тіло запиту:
-json
-Копіювати
-Редагувати
+
 {
   "items": [
     {
@@ -114,9 +110,7 @@ GET /orders/total-profit
 Повертає загальний прибуток зі всіх замовлень.
 
 Приклад відповіді:
-json
-Копіювати
-Редагувати
+
 {
   "totalProfit": 125000
 }
@@ -124,33 +118,23 @@ GET /products/top
 Повертає топ-3 товарів, що найкраще продаються (за полем sold).
 Інструкція по запуску
 1. Клонування проєкту
-bash
-Копіювати
-Редагувати
+
 git clone https://github.com/your-username/ecommerce-api-mongo.git
 cd ecommerce-api-mongo
 2. Встановлення залежностей
-bash
-Копіювати
-Редагувати
 npm install
+
 3. Налаштування MongoDB
 Переконайтесь, що MongoDB запущено локально та доступне на:
 
-pgsql
-Копіювати
-Редагувати
+
 mongodb://admin:admin123@localhost:27017/admin?authSource=admin
 Або змініть рядок підключення в index.js:
 
-js
-Копіювати
-Редагувати
+
 mongoose.connect('mongodb://<user>:<password>@<host>:<port>/<database>?authSource=admin');
 4. Запуск сервера
-bash
-Копіювати
-Редагувати
+
 node index.js
 Сервер буде доступний на http://localhost:3000.
 
